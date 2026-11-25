@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReviewShield – AI Review Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Compact Cybersecurity Left Navigation Sidebar -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <a href="#home" class="brand-wrapper" onclick="switchTab('home')">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-name">ReviewShield</span>
+            <span class="brand-badge">AI REVIEW INTELLIGENCE</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-nav-container">
+        <!-- Group 1: Core Intelligence -->
+        <div>
+          <div class="nav-group-title">Core Intelligence</div>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link active" data-tab="home">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-tab="dashboard">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Dashboard</span>
+                <span class="nav-badge teal" id="navBadgeTotal">1,149</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-tab="single-review">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>Single Analysis</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-tab="bulk-review">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Bulk Analysis</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group 2: Advanced Analytics -->
+        <div>
+          <div class="nav-group-title">Advanced Analytics</div>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" data-tab="explainable-ai">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Explainable AI</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-tab="behaviour-patterns">
+                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                <span>Behaviour &amp; Patterns</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" data-tab="model-insights">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                <span>Model Insights</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group 3: Governance & Audit -->
+        <div>
+          <div class="nav-group-title">Governance &amp; Audit</div>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" data-tab="history">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Prediction History</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar Status Footer -->
+      <div class="sidebar-footer">
+        <div class="model-status-card">
+          <div class="model-status-header">
+            <span class="status-dot-pulse"></span>
+            <span class="model-status-title">Ensemble 55/45 Active</span>
+          </div>
+          <div class="model-status-meta">
+            55% XGBoost + 45% RoBERTa<br>
+            Threshold: 0.54 • 4 Models Ready
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Application Workspace -->
+    <main class="main-wrapper">
+      <!-- Top Navigation Bar -->
+      <header class="topbar">
+        <div class="topbar-breadcrumbs">
+          <span class="breadcrumb-root">ReviewShield</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current" id="pageTitle">Security Analytics Overview</span>
+        </div>
+        <div class="topbar-actions">
+          <div class="system-health-pill">
+            <span class="dot"></span>
+            <span>Live SQLite Synced • Latency: 24ms</span>
+          </div>
+          <div class="app-identity-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg>
+            <span>Enterprise SaaS</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Workspace Views -->
+      <div class="content-area">
+
+        <!-- ==================================================================== -->
+        <!-- 1. HOME / PRODUCT OVERVIEW                                          -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane active" id="pane-home">
+          <!-- Compact Product Introduction -->
+          <div class="home-intro-card">
+            <div class="home-intro-badge">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/></svg>
+              <span>Autonomous Fraud Verification Engine</span>
+            </div>
+            <h1 class="home-intro-title">ReviewShield Intelligence</h1>
+            <p class="home-intro-desc">
+              ReviewShield operates an enterprise dual-stream AI pipeline combining deep semantic transformers with behavioural stylometry and temporal burst analysis to detect deceptive e-commerce reviews with court-admissible audit trails.
+            </p>
+            <div class="home-intro-actions">
+              <button class="btn btn-primary" onclick="switchTab('single-review')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+                <span>Analyse a Review</span>
+              </button>
+              <button class="btn btn-secondary" onclick="switchTab('bulk-review')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>Bulk Analysis</span>
+              </button>
+              <button class="btn btn-secondary" onclick="switchTab('dashboard')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Security Dashboard</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 Compact Model Architecture Summary Cards -->
+          <div class="card" style="margin-bottom: 16px;">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Multi-Model Detection Architecture</h3>
+                <p class="card-subtitle">Ensemble core combined with standalone comparison benchmarks</p>
+              </div>
+            </div>
+            <div class="model-summary-grid">
+              <div class="model-summary-card">
+                <div class="model-summary-header">
+                  <span class="model-summary-name">Tuned XGBoost</span>
+                  <span class="model-summary-tag primary">55% Ensemble</span>
+                </div>
+                <p class="model-summary-desc">Gradient-boosted decision trees over 10,000 TF-IDF features, burst pacing, and account stylometry.</p>
+              </div>
+              <div class="model-summary-card">
+                <div class="model-summary-header">
+                  <span class="model-summary-name">RoBERTa</span>
+                  <span class="model-summary-tag primary">45% Ensemble</span>
+                </div>
+                <p class="model-summary-desc">Fine-tuned dynamic masking transformer capturing deep semantic context and emotional syntax.</p>
+              </div>
+              <div class="model-summary-card">
+                <div class="model-summary-header">
+                  <span class="model-summary-name">BERT Base</span>
+                  <span class="model-summary-tag standalone">Comparison</span>
+                </div>
+                <p class="model-summary-desc">Bidirectional transformer evaluated as an independent standalone classification baseline.</p>
+              </div>
+              <div class="model-summary-card">
+                <div class="model-summary-header">
+                  <span class="model-summary-name">DeBERTa</span>
+                  <span class="model-summary-tag standalone">Comparison</span>
+                </div>
+                <p class="model-summary-desc">Disentangled attention network evaluated as an advanced language modeling comparison candidate.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official Verified Test Performance Highlights -->
+          <div class="kpi-grid">
+            <div class="kpi-card" style="--kpi-bar: #0D9488;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Held-out Accuracy</span>
+                <span class="kpi-icon-badge green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+              </div>
+              <div class="kpi-value">88.28%</div>
+              <div class="kpi-meta">6,665 test reviews verified</div>
+            </div>
+            <div class="kpi-card" style="--kpi-bar: #2563EB;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Fake Recall Rate</span>
+                <span class="kpi-icon-badge blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></span>
+              </div>
+              <div class="kpi-value">94.57%</div>
+              <div class="kpi-meta">Catches 94+ of every 100 fakes</div>
+            </div>
+            <div class="kpi-card" style="--kpi-bar: #7C3AED;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Area Under ROC (AUC)</span>
+                <span class="kpi-icon-badge purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
+              </div>
+              <div class="kpi-value">93.72%</div>
+              <div class="kpi-meta">Precision-Recall AUC: 96.93%</div>
+            </div>
+            <div class="kpi-card" style="--kpi-bar: #101B2D;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Active Database Records</span>
+                <span class="kpi-icon-badge green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+              </div>
+              <div class="kpi-value" id="homeTotalRecords">1,149</div>
+              <div class="kpi-meta">Persistent in reviewshield_app.db</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 2. ANALYTICS DASHBOARD WORKSPACE                                     -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-dashboard">
+          <div class="page-header">
+            <h1 class="page-title">Security Analytics Overview</h1>
+            <p class="page-subtitle">Monitor review authenticity, detection activity and model performance.</p>
+          </div>
+
+          <!-- 4 KPI Cards in 1 Row -->
+          <div class="kpi-grid" id="dashboardStatsGrid">
+            <div class="kpi-card" style="--kpi-bar: #2563EB;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Total Reviews Analysed</span>
+                <span class="kpi-icon-badge blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></span>
+              </div>
+              <div class="kpi-value" id="kpiTotalPredictions">0</div>
+              <div class="kpi-meta">Live SQLite record count</div>
+            </div>
+
+            <div class="kpi-card" style="--kpi-bar: #DC5252;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Potentially Fake</span>
+                <span class="kpi-icon-badge red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></span>
+              </div>
+              <div class="kpi-value" id="kpiFakeDetected" style="color: var(--fake-red);">0</div>
+              <div class="kpi-meta" id="kpiFakePercent">0.0% of total</div>
+            </div>
+
+            <div class="kpi-card" style="--kpi-bar: #15966A;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Potentially Genuine</span>
+                <span class="kpi-icon-badge green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+              </div>
+              <div class="kpi-value" id="kpiGenuineDetected" style="color: var(--genuine-green);">0</div>
+              <div class="kpi-meta" id="kpiGenuinePercent">0.0% of total</div>
+            </div>
+
+            <div class="kpi-card" style="--kpi-bar: #7C3AED;">
+              <div class="kpi-card-header">
+                <span class="kpi-label">Fake Review Rate</span>
+                <span class="kpi-icon-badge purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></span>
+              </div>
+              <div class="kpi-value" id="kpiFakeRate" style="color: var(--purple-accent);">0.0%</div>
+              <div class="kpi-meta" id="kpiBatchesMeta">Across all batches</div>
+            </div>
+          </div>
+
+          <!-- Charts Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1.35fr; gap: 16px; margin-bottom: 16px;">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">Verdict Distribution</h3>
+                  <p class="card-subtitle">Fake vs genuine ratio across database</p>
+                </div>
+              </div>
+              <div style="height: 240px; position: relative;">
+                <canvas id="chartDashboardPie"></canvas>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">Recent Risk Score Sequence</h3>
+                  <p class="card-subtitle">Recent 30 analyses (Red: Fake, Green: Genuine)</p>
+                </div>
+              </div>
+              <div style="height: 240px; position: relative;">
+                <canvas id="chartDashboardHistory"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Recent Activity Table -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Recent Inspection Stream</h3>
+                <p class="card-subtitle">Real-time audit records stored persistently in reviewshield_app.db</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="loadDashboardStats()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                <span>Refresh Stream</span>
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Prediction ID</th>
+                    <th>Timestamp</th>
+                    <th>Review Content</th>
+                    <th>Rating</th>
+                    <th>Risk Score</th>
+                    <th>Classification</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="dashRecentActivityBody">
+                  <tr><td colspan="7" style="text-align:center; padding: 20px; color: var(--text-dim);">Loading recent activity...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 3. SINGLE REVIEW ANALYSIS WORKSPACE                                  -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-single-review">
+          <div class="single-review-grid">
+            <!-- Left Panel: Input Console -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">Review Submission Console</h3>
+                  <p class="card-subtitle">Enter customer feedback and optional account context for inference</p>
+                </div>
+              </div>
+
+              <form id="singleReviewForm" onsubmit="event.preventDefault(); predictSingleReview();">
+                <div class="form-group">
+                  <label class="form-label">Review Headline / Title</label>
+                  <input type="text" id="singleTitle" class="form-control" placeholder="e.g. Outstanding audio clarity with deep bass">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Full Review Content *</label>
+                  <textarea id="singleText" class="form-control" rows="5" required placeholder="Paste or type the customer review text here..."></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+                  <div>
+                    <label class="form-label">Customer Star Rating (1 to 5)</label>
+                    <div class="star-rating-input" id="starRatingSelector">
+                      <span class="star active selected" data-value="1">★</span>
+                      <span class="star active selected" data-value="2">★</span>
+                      <span class="star active selected" data-value="3">★</span>
+                      <span class="star active selected" data-value="4">★</span>
+                      <span class="star active selected" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="singleRating" value="5">
+                  </div>
+                  <div>
+                    <label class="form-label">Review Date</label>
+                    <input type="date" id="singleDate" class="form-control">
+                  </div>
+                </div>
+
+                <!-- Optional Context -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 14px;">
+                  <div style="font-size: 11px; font-weight: 600; color: var(--text-heading); margin-bottom: 6px; display:flex; align-items:center; gap:5px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                    Optional Account Profiling
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div>
+                      <label style="font-size: 10.5px; color: var(--text-muted); font-weight: 500;">Reviewer Account ID</label>
+                      <input type="text" id="singleReviewerId" class="form-control" placeholder="e.g. AE222NWVQMRJ5Z2NRWQS7VR2Z7RQ">
+                    </div>
+                    <div>
+                      <label style="font-size: 10.5px; color: var(--text-muted); font-weight: 500;">Product ASIN / SKU</label>
+                      <input type="text" id="singleProductId" class="form-control" placeholder="e.g. B01XYZ1234">
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <label style="display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-muted); cursor: pointer;">
+                    <input type="checkbox" id="chkIncludeAllModels" style="accent-color: var(--teal-primary);">
+                    <span>Include 4-Model Comparison (BERT + DeBERTa)</span>
+                  </label>
+                  <button type="submit" class="btn btn-primary" id="btnAnalyzeSingle">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <span>Run Fraud Inspection</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Right Panel: Dual-Probability Audit Dossier (Sections 7 & 19) -->
+            <div class="result-card-container" id="singleResultContainer">
+              <div style="text-align: center; padding: 28px 16px; color: var(--text-muted);">
+                <div style="width: 38px; height: 38px; background: var(--bg-subtle); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px; border: 1px solid var(--border-light);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                </div>
+                <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-bottom: 4px;">Audit Dossier Awaiting Input</h4>
+                <p style="font-size: 0.78rem; line-height: 1.45; max-width: 320px; margin: 0 auto; color: var(--text-dim);">
+                  Submit a review from the console or select a sample from Dashboard to view real-time ensemble probabilities and XAI factors.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 4. BULK REVIEW DATASET WORKSPACE                                     -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-bulk-review">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Bulk Dataset Ingestion</h3>
+                <p class="card-subtitle">Upload CSV review datasets for vectorized batch scoring</p>
+              </div>
+            </div>
+
+            <!-- Dropzone -->
+            <div class="dropzone-container" id="bulkDropzone">
+              <div class="dropzone-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              </div>
+              <h4 style="font-size: 14px; font-weight: 650; color: var(--text-heading); margin-bottom: 4px;">Drag &amp; drop review dataset CSV here</h4>
+              <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 12px;">
+                Supports standard columns: <code>review_title</code>, <code>review_text</code>, <code>rating</code>, <code>reviewer_id</code>
+              </p>
+              <input type="file" id="bulkFileInput" accept=".csv" style="display: none;">
+              <button class="btn btn-secondary btn-sm" id="btnBrowseBulk">Browse File</button>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="bulkLoadingIndicator" style="display: none; text-align: center; padding: 28px 16px;">
+              <div style="font-size: 13px; font-weight: 600; color: var(--text-heading); margin-bottom: 6px;">Scoring Dataset via 55/45 Ensemble...</div>
+              <p style="font-size: 11.5px; color: var(--text-muted);">Calculating textual stylometry, transformer embeddings, and storing batch records...</p>
+            </div>
+
+            <!-- Summary Results Banner -->
+            <div id="bulkSummarySection" style="display: none; margin-top: 16px;">
+              <div class="kpi-grid">
+                <div class="kpi-card" style="--kpi-bar: #2563EB;">
+                  <span class="kpi-label">Batch Processed</span>
+                  <div class="kpi-value" id="bulkTotalUploaded">0</div>
+                  <div class="kpi-meta">Reviews scored</div>
+                </div>
+                <div class="kpi-card" style="--kpi-bar: #DC5252;">
+                  <span class="kpi-label">Flagged Suspicious</span>
+                  <div class="kpi-value" id="bulkFakeCount" style="color: var(--fake-red);">0</div>
+                  <div class="kpi-meta" id="bulkFakePct">0% of batch</div>
+                </div>
+                <div class="kpi-card" style="--kpi-bar: #15966A;">
+                  <span class="kpi-label">Verified Organic</span>
+                  <div class="kpi-value" id="bulkGenuineCount" style="color: var(--genuine-green);">0</div>
+                  <div class="kpi-meta" id="bulkGenuinePct">0% of batch</div>
+                </div>
+                <div class="kpi-card" style="--kpi-bar: #7C3AED;">
+                  <span class="kpi-label">Detection Threshold</span>
+                  <div class="kpi-value" style="color: var(--purple-accent);">0.54</div>
+                  <div class="kpi-meta">55% XGB + 45% RoBERTa</div>
+                </div>
+              </div>
+
+              <!-- Filter and Export Actions -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 10px; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <input type="text" id="bulkFilterInput" class="form-control" style="width: 220px;" placeholder="Search within batch..." oninput="filterBulkTable()">
+                  <select id="bulkVerdictFilter" class="form-control" style="width: 150px;" onchange="filterBulkTable()">
+                    <option value="ALL">All Outcomes</option>
+                    <option value="Potentially Fake">Potentially Fake</option>
+                    <option value="Potentially Genuine">Potentially Genuine</option>
+                  </select>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="exportBulkToCSV()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Export Batch CSV</span>
+                </button>
+              </div>
+
+              <!-- Bulk Table with Dual-Probability Bar on Every Row (Section 20) -->
+              <div class="table-responsive">
+                <table class="data-table" id="bulkResultsTable">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Rating</th>
+                      <th>Review Content</th>
+                      <th>Fake Prob</th>
+                      <th>Genuine Prob</th>
+                      <th>Probability Distribution</th>
+                      <th>Verdict</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="bulkTableBody"></tbody>
+                </table>
+              </div>
+
+              <!-- Pagination -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 11.5px; color: var(--text-muted);">
+                <div id="bulkPaginationInfo">Showing 0-0 of 0</div>
+                <div style="display: flex; gap: 6px;">
+                  <button class="btn btn-secondary btn-sm" id="btnPrevBulk" onclick="changeBulkPage(-1)">Previous</button>
+                  <button class="btn btn-secondary btn-sm" id="btnNextBulk" onclick="changeBulkPage(1)">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 5. EXPLAINABLE AI WORKSPACE (SECTIONS 9 & 17)                        -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-explainable-ai">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Explainable AI (TreeSHAP &amp; Lexical Attribution)</h3>
+                <p class="card-subtitle">Transparent feature importance breakdown grounded in XGBoost TreeSHAP attributions</p>
+              </div>
+            </div>
+
+            <!-- Sub-Navigation for Explainable AI (Section 17) -->
+            <div class="xai-subnav">
+              <button class="xai-subtab-btn active" id="btnXaiSubGlobal" onclick="switchXaiSubtab('global')">Global Feature Importance (TreeSHAP)</button>
+              <button class="xai-subtab-btn" id="btnXaiSubSamples" onclick="switchXaiSubtab('samples')">Sampled Benchmark Explanations</button>
+              <button class="xai-subtab-btn" id="btnXaiSubDynamic" onclick="switchXaiSubtab('dynamic')">Dynamic Prediction Inspection</button>
+            </div>
+
+            <!-- Disclaimer Banner -->
+            <div style="background: var(--primary-blue-soft); border: 1px solid var(--primary-blue-border); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 16px; font-size: 11.5px; color: #1E40AF; display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span>Feature attribution values represent TreeSHAP additive explanations from the XGBoost component (55% ensemble weight). Deep neural representations from RoBERTa contribute semantically in parallel.</span>
+            </div>
+
+            <!-- Sub-View 1: Global Feature Importance -->
+            <div id="xaiSubViewGlobal">
+              <div style="margin-bottom: 16px;">
+                <h4 style="font-size: 13.5px; font-weight: 650; color: var(--text-heading); margin-bottom: 4px;">Global TreeSHAP Feature Attribution (Full Training Corpus)</h4>
+                <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">
+                  Mean absolute SHAP value impact across 10,016 engineered and lexical features. Account history and burst pacing represent the dominant fraud drivers.
+                </p>
+                <div style="height: 260px; position: relative;">
+                  <canvas id="chartXaiGlobal"></canvas>
+                </div>
+              </div>
+
+              <h4 style="font-size: 13.5px; font-weight: 650; color: var(--text-heading); margin-bottom: 8px;">Top Global Feature Rankings &amp; Diagnostic Interpretations</h4>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Feature Identifier</th>
+                      <th>Category</th>
+                      <th>Mean |SHAP|</th>
+                      <th>Diagnostic Security Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody id="xaiGlobalTableBody">
+                    <tr><td colspan="5" style="text-align:center; padding:16px;">Loading global TreeSHAP importances...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Sub-View 2: Sampled Benchmark Explanations -->
+            <div id="xaiSubViewSamples" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <h4 style="font-size: 13.5px; font-weight: 650; color: var(--text-heading);">Verified Test Set Individual SHAP Samples</h4>
+                  <p style="font-size: 11.5px; color: var(--text-muted);">Inspect real additive feature explanations computed across 2,000 sampled test reviews.</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <label style="font-size: 11.5px; font-weight: 600; color: var(--text-muted);">Select Sample:</label>
+                  <select id="selectShapSample" class="form-control" style="width: 260px;" onchange="loadSelectedShapSample()"></select>
+                </div>
+              </div>
+
+              <!-- Sample Header Card -->
+              <div id="xaiSampleMetaCard" style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 14px;">
+                <!-- Injected by app.js -->
+              </div>
+
+              <!-- Sample Waterfall Chart -->
+              <div style="height: 250px; margin-bottom: 16px; position: relative;">
+                <canvas id="chartXaiSampleWaterfall"></canvas>
+              </div>
+
+              <!-- Two Columns: Positive vs Negative Contributions -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div class="card" style="border-left: 3px solid var(--fake-red); margin-bottom: 0;">
+                  <h4 style="font-size: 12.5px; font-weight: 650; color: var(--fake-red); margin-bottom: 8px;">Top Positive Drivers (Increases Fake Risk)</h4>
+                  <div id="xaiSamplePosDrivers"></div>
+                </div>
+                <div class="card" style="border-left: 3px solid var(--genuine-green); margin-bottom: 0;">
+                  <h4 style="font-size: 12.5px; font-weight: 650; color: var(--genuine-green); margin-bottom: 8px;">Top Negative Drivers (Pushes Toward Genuine)</h4>
+                  <div id="xaiSampleNegDrivers"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-View 3: Dynamic Single Prediction Inspection -->
+            <div id="xaiSubViewDynamic" style="display: none;">
+              <div id="xaiPredictionSummary" style="margin-bottom: 14px;">
+                <div style="padding: 12px 14px; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-light); font-size: 12px; color: var(--text-muted);">
+                  Submit a review in <strong>Single Review Analysis</strong> or click "Inspect TreeSHAP Signals" on a result card to generate dynamic live explanations.
+                </div>
+              </div>
+
+              <div style="height: 250px; margin-bottom: 16px; position: relative;">
+                <canvas id="chartXaiWaterfall"></canvas>
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <h4 style="font-size: 13px; font-weight: 650; color: var(--text-heading); margin-bottom: 8px;">Top Lexical &amp; Structural Attribution Signals</h4>
+                <div id="xaiTopSignalsContainer" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+              </div>
+
+              <h4 style="font-size: 13px; font-weight: 650; color: var(--text-heading); margin-bottom: 8px;">Dynamic Feature Contributions for Current Review</h4>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Feature Metric</th>
+                      <th>Observed Value</th>
+                      <th>SHAP Value</th>
+                      <th>Diagnostic Interpretation</th>
+                    </tr>
+                  </thead>
+                  <tbody id="xaiGlobalFeaturesTableBody">
+                    <tr><td colspan="4" style="text-align: center; padding: 14px; color: var(--text-dim);">Awaiting single prediction...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="margin-top: 14px; padding: 12px 14px; background: var(--bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-light);">
+                <div style="font-size: 11.5px; font-weight: 600; color: var(--text-heading); margin-bottom: 3px;">Natural Language Diagnostic Synthesis:</div>
+                <div id="xaiExplanationText" style="font-size: 12px; color: var(--text-body); line-height: 1.45;">Awaiting prediction...</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 6. BEHAVIOUR & PATTERN INTELLIGENCE                                  -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-behaviour-patterns">
+          <div class="page-header">
+            <h1 class="page-title">Behaviour &amp; Temporal Pattern Intelligence</h1>
+            <p class="page-subtitle">Examine structural pacing and distribution anomalies across fraudulent vs authentic submissions.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">Rating Distribution Anomaly</h3>
+                  <p class="card-subtitle">Extreme bimodal (1-star vs 5-star) polarity in fraudulent reviews</p>
+                </div>
+              </div>
+              <div style="height: 230px; position: relative;">
+                <canvas id="patternRatingChart"></canvas>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">Inter-Review Temporal Gap</h3>
+                  <p class="card-subtitle">Median days between sequential reviews from identical accounts</p>
+                </div>
+              </div>
+              <div style="height: 230px; position: relative;">
+                <canvas id="patternTimingChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">7-Day Review Burst Activity</h3>
+                  <p class="card-subtitle">High-frequency submission bursts concentrated within short temporal windows</p>
+                </div>
+              </div>
+              <div style="height: 230px; position: relative;">
+                <canvas id="patternBurstChart"></canvas>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <h3 class="card-title">Reviewer Multi-Product Diversity</h3>
+                  <p class="card-subtitle">Ratio of single-product throwaway accounts vs authentic organic consumers</p>
+                </div>
+              </div>
+              <div style="height: 230px; position: relative;">
+                <canvas id="patternProductsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 7. MODEL INSIGHTS WORKSPACE (SECTIONS 11 & 18)                       -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-model-insights">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Model Performance &amp; Evaluation Workspace</h3>
+                <p class="card-subtitle">Strictly preserved held-out test split results on 6,665 real Amazon review observations</p>
+              </div>
+            </div>
+
+            <!-- Interactive Model Selection Cards (Section 18) -->
+            <div class="model-select-grid" id="modelSelectCardsContainer">
+              <div class="model-select-card active" data-model="ensemble_test" onclick="selectModelInsight('ensemble_test')">
+                <div class="model-select-title">55% XGB + 45% RoBERTa</div>
+                <div class="model-select-metric">88.28% Acc</div>
+                <div class="model-select-sub">Official Primary Ensemble</div>
+              </div>
+              <div class="model-select-card" data-model="xgboost_full_test" onclick="selectModelInsight('xgboost_full_test')">
+                <div class="model-select-title">Tuned XGBoost</div>
+                <div class="model-select-metric">84.15% Acc</div>
+                <div class="model-select-sub">Tabular &amp; Stylometry</div>
+              </div>
+              <div class="model-select-card" data-model="roberta" onclick="selectModelInsight('roberta')">
+                <div class="model-select-title">RoBERTa</div>
+                <div class="model-select-metric">86.70% Acc</div>
+                <div class="model-select-sub">Dynamic Masking Transformer</div>
+              </div>
+              <div class="model-select-card" data-model="bert" onclick="selectModelInsight('bert')">
+                <div class="model-select-title">BERT Base</div>
+                <div class="model-select-metric">83.90% Acc</div>
+                <div class="model-select-sub">Standalone Baseline</div>
+              </div>
+              <div class="model-select-card" data-model="deberta" onclick="selectModelInsight('deberta')">
+                <div class="model-select-title">DeBERTa</div>
+                <div class="model-select-metric">85.40% Acc</div>
+                <div class="model-select-sub">Disentangled Attention</div>
+              </div>
+            </div>
+
+            <!-- Model Comparison Matrix Table -->
+            <div class="table-responsive" style="margin-bottom: 20px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Model Candidate</th>
+                    <th>Accuracy</th>
+                    <th>Precision</th>
+                    <th>Recall (Fake)</th>
+                    <th>F1 Score</th>
+                    <th>ROC-AUC</th>
+                    <th>PR-AUC</th>
+                    <th>Deployment Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background: var(--teal-soft); font-weight: 600;">
+                    <td><strong>55% XGBoost + 45% RoBERTa</strong></td>
+                    <td>88.28%</td>
+                    <td>88.95%</td>
+                    <td>94.57%</td>
+                    <td>91.67%</td>
+                    <td>93.72%</td>
+                    <td>96.93%</td>
+                    <td><span class="badge-verdict genuine">PRIMARY ENSEMBLE</span></td>
+                  </tr>
+                  <tr>
+                    <td>XGBoost (Tabular + Stylometry)</td>
+                    <td>84.15%</td>
+                    <td>85.20%</td>
+                    <td>91.10%</td>
+                    <td>88.05%</td>
+                    <td>89.40%</td>
+                    <td>92.80%</td>
+                    <td><span class="badge-source single">Component</span></td>
+                  </tr>
+                  <tr>
+                    <td>RoBERTa (Fine-Tuned Transformer)</td>
+                    <td>86.70%</td>
+                    <td>87.40%</td>
+                    <td>93.20%</td>
+                    <td>90.21%</td>
+                    <td>92.15%</td>
+                    <td>95.10%</td>
+                    <td><span class="badge-source single">Component</span></td>
+                  </tr>
+                  <tr>
+                    <td>BERT (Standalone Comparison)</td>
+                    <td>83.90%</td>
+                    <td>84.50%</td>
+                    <td>89.80%</td>
+                    <td>87.07%</td>
+                    <td>88.20%</td>
+                    <td>91.40%</td>
+                    <td><span class="badge-source bulk">Comparison</span></td>
+                  </tr>
+                  <tr>
+                    <td>DeBERTa (Standalone Comparison)</td>
+                    <td>85.40%</td>
+                    <td>86.10%</td>
+                    <td>91.50%</td>
+                    <td>88.72%</td>
+                    <td>90.60%</td>
+                    <td>93.80%</td>
+                    <td><span class="badge-source bulk">Comparison</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Confusion Matrix & Metrics Card for Selected Model -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h4 style="font-size: 13px; font-weight: 650; color: var(--text-heading);" id="confMatrixTitle">Confusion Matrix: Primary Ensemble (6,665 Test Reviews)</h4>
+                <select id="selectConfusionModel" class="form-control" style="width: 220px;" onchange="renderSelectedConfusionMatrix()">
+                  <option value="ensemble_test">Primary Ensemble (Test Set)</option>
+                  <option value="xgboost_full_test">Tuned XGBoost (Test Set)</option>
+                  <option value="roberta">RoBERTa (Validation Split)</option>
+                  <option value="bert">BERT (Validation Split)</option>
+                  <option value="deberta">DeBERTa (Validation Split)</option>
+                </select>
+              </div>
+              <div id="confusionMatrixContainer"></div>
+            </div>
+
+            <!-- Curve Selector & Chart -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <h4 style="font-size: 13.5px; font-weight: 650; color: var(--text-heading);">Discrimination Curve Visualizer</h4>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-primary btn-sm" id="btnCurveRoc" onclick="switchInsightGraph('roc')">ROC Curve (AUC 93.72%)</button>
+                <button class="btn btn-secondary btn-sm" id="btnCurvePr" onclick="switchInsightGraph('pr')">PR Curve (AUC 96.93%)</button>
+              </div>
+            </div>
+            <div style="height: 270px; position: relative;">
+              <canvas id="chartInsightCurves"></canvas>
+            </div>
+            <div id="insightChartCaption" style="margin-top: 10px; font-size: 11.5px; color: var(--text-muted); line-height: 1.4;"></div>
+          </div>
+        </section>
+
+        <!-- ==================================================================== -->
+        <!-- 8. PREDICTION HISTORY AUDIT TRAIL                                    -->
+        <!-- ==================================================================== -->
+        <section class="tab-pane" id="pane-history">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="card-title">Prediction History Audit Trail</h3>
+                <p class="card-subtitle">Search, inspect, and re-download complete PDF reports for previously analysed reviews</p>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                <input type="text" id="historySearchInput" class="form-control" style="width: 200px;" placeholder="Search ID, text, batch..." oninput="debounceHistorySearch()">
+                <select id="historyCategoryFilter" class="form-control" style="width: 140px;" onchange="loadHistoryPage(0)">
+                  <option value="ALL">All Categories</option>
+                  <option value="Potentially Fake">Potentially Fake</option>
+                  <option value="Potentially Genuine">Potentially Genuine</option>
+                </select>
+                <select id="historySourceFilter" class="form-control" style="width: 110px;" onchange="loadHistoryPage(0)">
+                  <option value="ALL">All Sources</option>
+                  <option value="single">Single</option>
+                  <option value="bulk">Bulk</option>
+                </select>
+                <button class="btn btn-secondary btn-sm" onclick="loadHistoryPage(0)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                  <span>Refresh</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table" id="historyDataTable">
+                <thead>
+                  <tr>
+                    <th>Prediction ID</th>
+                    <th>Date &amp; Time</th>
+                    <th>Review Title</th>
+                    <th>Review Preview</th>
+                    <th>Rating</th>
+                    <th>Verdict</th>
+                    <th>Fake Prob</th>
+                    <th>Genuine Prob</th>
+                    <th>Source</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                  <tr><td colspan="10" style="text-align: center; padding: 20px; color: var(--text-muted);">Loading database audit records...</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- History Pagination -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 11.5px; color: var(--text-muted);">
+              <div id="historyPaginationInfo">Showing 0-0 of 0</div>
+              <div style="display: flex; gap: 6px;">
+                <button class="btn btn-secondary btn-sm" id="btnPrevHistory" onclick="changeHistoryPage(-1)">Previous</button>
+                <button class="btn btn-secondary btn-sm" id="btnNextHistory" onclick="changeHistoryPage(1)">Next</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Prediction Details -->
+  <div class="modal-overlay" id="historyDetailModal">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; border-bottom: 1px solid var(--border-light); padding-bottom: 10px;">
+        <div>
+          <h3 style="font-size: 15px; font-weight: 700; color: var(--text-heading);" id="histModalTitle">Prediction Audit Dossier</h3>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px;" id="histModalSubtitle">ID: PRED_...</p>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="closeHistoryModal()">✕</button>
+      </div>
+      <div id="histModalBody"></div>
+      <div style="display: flex; justify-content: flex-end; margin-top: 16px; border-top: 1px solid var(--border-light); padding-top: 12px;">
+        <button class="btn btn-primary btn-sm" id="histModalPdfBtn" onclick="downloadModalPdf()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download PDF Report</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Column Mapping -->
+  <div class="modal-overlay" id="columnMappingModal">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+        <h3 style="font-size: 14px; font-weight: 700; color: var(--text-heading);">Map Dataset Columns</h3>
+        <button class="btn btn-secondary btn-sm" onclick="closeColumnModal()">✕</button>
+      </div>
+      <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 14px;">
+        Match your CSV columns with ReviewShield model inputs:
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+        <div class="form-group">
+          <label class="form-label">Review Title</label>
+          <select id="mapTitle" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Review Text *</label>
+          <select id="mapText" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Rating *</label>
+          <select id="mapRating" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Review Date</label>
+          <select id="mapDate" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Reviewer ID</label>
+          <select id="mapReviewerId" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Product ID</label>
+          <select id="mapProductId" class="form-control"></select>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-secondary" onclick="closeColumnModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmColumnMappingAndAnalyze()">Start Batch Scoring</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/chart.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

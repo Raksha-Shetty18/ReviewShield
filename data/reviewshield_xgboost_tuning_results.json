@@ -1,0 +1,30 @@
+{
+    "model": "Tuned XGBoost",
+    "best_parameters": {
+        "subsample": 0.9,
+        "reg_lambda": 1,
+        "n_estimators": 400,
+        "min_child_weight": 5,
+        "max_depth": 5,
+        "learning_rate": 0.08,
+        "gamma": 0.3,
+        "colsample_bytree": 0.8
+    },
+    "grouped_cv_accuracy": 0.8385362675731471,
+    "validation_accuracy": 0.8424253944117088,
+    "validation_precision": 0.8684067427949973,
+    "validation_recall": 0.9025148346990676,
+    "validation_f1": 0.8851323264514341,
+    "validation_roc_auc": 0.918210112045011,
+    "validation_pr_auc": 0.9608285652633091,
+    "confusion_matrix": [
+        [
+            1238,
+            484
+        ],
+        [
+            345,
+            3194
+        ]
+    ]
+}

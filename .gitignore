@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/
+
+# Backups
+backup_stage3/
+backup_stage4/
+static_backup/
+scratch/
+*.bak
+*.bak2
+
+# Private databases
+data/*.db
+data/reviewers.db
+data/reviewshield_app.db
+data/reviewshield_behavioral_features.csv
+data/reviewshield_test.csv

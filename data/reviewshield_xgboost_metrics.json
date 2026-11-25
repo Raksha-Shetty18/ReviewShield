@@ -1,0 +1,40 @@
+{
+    "model": "XGBoost",
+    "version": "3.4.1",
+    "training_reviews": 26275,
+    "testing_reviews": 6665,
+    "accuracy": 0.8436609152288072,
+    "precision": 0.8731104960613157,
+    "recall": 0.9019133494611832,
+    "f1_score": 0.8872782345305062,
+    "roc_auc": 0.913915991886649,
+    "pr_auc": 0.9597235251214941,
+    "confusion_matrix": [
+        [
+            1522,
+            596
+        ],
+        [
+            446,
+            4101
+        ]
+    ],
+    "numeric_features": [
+        "review_rating",
+        "prior_review_count",
+        "prior_distinct_products",
+        "prior_average_rating",
+        "days_since_previous_review",
+        "prior_7day_review_count",
+        "prior_30day_review_count",
+        "text_word_count",
+        "text_character_count",
+        "text_average_word_length",
+        "text_exclamation_count",
+        "text_question_count",
+        "text_uppercase_ratio",
+        "text_repeated_word_count",
+        "prior_average_rating_missing",
+        "days_since_previous_review_missing"
+    ]
+}

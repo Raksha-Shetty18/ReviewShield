@@ -1,0 +1,117 @@
+{
+  "dataset_summary": {
+    "total_reviews": 6665,
+    "fake_count": 4547,
+    "genuine_count": 2118,
+    "unique_reviewers": 2347,
+    "unique_products": 1848
+  },
+  "rating_distribution": {
+    "labels": [
+      "1 Star",
+      "2 Stars",
+      "3 Stars",
+      "4 Stars",
+      "5 Stars"
+    ],
+    "fake": [
+      122,
+      38,
+      37,
+      173,
+      4177
+    ],
+    "genuine": [
+      158,
+      89,
+      105,
+      212,
+      1554
+    ]
+  },
+  "temporal_gaps": {
+    "labels": [
+      "Within 24 Hours",
+      "2 - 7 Days",
+      "8 - 30 Days",
+      "31 - 90 Days",
+      "> 90 Days"
+    ],
+    "fake": [
+      190,
+      934,
+      1322,
+      674,
+      215
+    ],
+    "genuine": [
+      10,
+      51,
+      94,
+      183,
+      346
+    ]
+  },
+  "burst_patterns_7day": {
+    "labels": [
+      "0 Prior (Isolated)",
+      "1 - 2 Reviews",
+      "3 - 5 Reviews",
+      "6+ Rapid Reviews"
+    ],
+    "fake": [
+      3423,
+      992,
+      117,
+      15
+    ],
+    "genuine": [
+      2057,
+      61,
+      0,
+      0
+    ]
+  },
+  "product_diversity": {
+    "labels": [
+      "Single Product Only",
+      "2 - 4 Products",
+      "5 - 10 Products",
+      "11+ Products"
+    ],
+    "fake": [
+      2193,
+      1334,
+      577,
+      443
+    ],
+    "genuine": [
+      2022,
+      93,
+      3,
+      0
+    ]
+  },
+  "textual_metrics": {
+    "avg_word_count": {
+      "fake": 66.6,
+      "genuine": 46.9
+    },
+    "avg_char_count": {
+      "fake": 347.1,
+      "genuine": 246.5
+    },
+    "uppercase_ratio": {
+      "fake": 3.44,
+      "genuine": 5.39
+    },
+    "exclamation_per_review": {
+      "fake": 0.91,
+      "genuine": 0.73
+    },
+    "repeated_words_avg": {
+      "fake": 19.6,
+      "genuine": 13.7
+    }
+  }
+}
